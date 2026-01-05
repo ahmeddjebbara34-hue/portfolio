@@ -321,67 +321,84 @@
                             </div>
                         </div>
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="faq-content-items">
-                                 <form action="contact.php" class="mt-0 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <div class="form-clt">
-                                            <input type="text" placeholder="Enter Your Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-clt">
-                                            <input type="text" placeholder="Enter Your Number">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <input type="text" placeholder="Enter Your Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <textarea name="message" placeholder="Enter Your Messanger"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <div class="budget-item">
-                                                <h4>project budget</h4>
-                                                <div class="budget-button">
-                                                    <button type="button" class="budget-btn">
-                                                        $500
-                                                    </button>
-                                                     <button type="button" class="budget-btn">
-                                                        $1200
-                                                    </button>
-                                                     <button type="button" class="budget-btn">
-                                                        $2000
-                                                    </button>
-                                                     <button type="button" class="budget-btn">
-                                                        $3500
-                                                    </button>
-                                                     <button type="button" class="budget-btn">
-                                                        $6000
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" class="theme-btn">
-                                            send message <i class="fa-solid fa-arrow-up-right"></i>
-                                        </button>
-                                    </div>
+<div class="faq-content-items">
+                          <form id="contact-form" class="mt-0 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="row g-4">
+                              <!-- الاسم -->
+                              <div class="col-lg-6">
+                                <div class="form-clt">
+                                  <input type="text" name="user_name" placeholder="Enter Your Name" required>
                                 </div>
-                            </form>
+                              </div>
+                        
+                              <!-- الرقم -->
+                              <div class="col-lg-6">
+                                <div class="form-clt">
+                                  <input type="text" name="user_number" placeholder="Enter Your Number" required>
+                                </div>
+                              </div>
+                        
+                              <!-- الايميل -->
+                              <div class="col-lg-12">
+                                <div class="form-clt">
+                                  <input type="email" name="user_email" placeholder="Enter Your Email" required>
+                                </div>
+                              </div>
+                        
+                              <!-- الرسالة -->
+                              <div class="col-lg-12">
+                                <div class="form-clt">
+                                  <textarea name="message" placeholder="Enter Your Messanger" required></textarea>
+                                </div>
+                              </div>
+                        
+                              <!-- اختيار الميزانية -->
+                              <div class="col-lg-12">
+                                <div class="form-clt">
+                                  <div class="budget-item">
+                                    <h4>Project Budget</h4>
+                                    <div class="budget-button">
+                                      <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$500'">$500</button>
+                                      <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$1200'">$1200</button>
+                                      <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$2000'">$2000</button>
+                                      <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$3500'">$3500</button>
+                                      <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$6000'">$6000</button>
+                                    </div>
+                                    <!-- حقل مخفي لإرسال القيمة -->
+                                    <input type="hidden" name="budget" id="budget" value="">
+                                  </div>
+                                </div>
+                              </div>
+                        
+                              <!-- زر الإرسال -->
+                              <div class="col-lg-12">
+                                <button type="submit" class="theme-btn">
+                                  send message <i class="fa-solid fa-arrow-up-right"></i>
+                                </button>
+                              </div>
                             </div>
-                           
+                          </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        
+                        <!-- EmailJS SDK + كود الإرسال -->
+                        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+                        <script type="text/javascript">
+                          // تفعيل Public Key
+                          emailjs.init("LO4AnvpB_e94uZ4uY");
+                        
+                          // ربط الفورم بـ EmailJS
+                          document.getElementById('contact-form').addEventListener('submit', function(event) {
+                            event.preventDefault(); // منع إعادة تحميل الصفحة
+                        
+                            emailjs.sendForm('service_zwxofca', 'template_7fgvllk', this)
+                              .then(function() {
+                                alert('تم إرسال الرسالة بنجاح!');
+                                document.getElementById('contact-form').reset(); // تفريغ الفورم بعد الإرسال
+                              }, function(error) {
+                                alert('حدث خطأ: ' + JSON.stringify(error));
+                              });
+                          });
+                        </script>
 
         <div class="contact-inner-section">
             <div class="container">
