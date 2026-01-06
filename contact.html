@@ -299,7 +299,7 @@
                  <!-- News Section Start -->
         <section class="news-grid-section1 fix pb-0">
             <div class="container">
-               <h1 class="hero_title tv_hero_title hero_title_1">contact for work</h1>
+               <h1 class="hero_title tv_hero_title hero_title_1">Contact for Collaboration</h1>
             </div>
         </section>
 
@@ -352,19 +352,19 @@
                                   </div>
                                 </div>
                         
-                                <!-- اختيار الميزانية -->
+                                <!-- اختيار الغرض -->
                                 <div class="col-lg-12">
                                   <div class="form-clt">
-                                    <div class="budget-item">
-                                      <h4>Project Budget</h4>
-                                      <div class="budget-button">
-                                        <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$500'">$500</button>
-                                        <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$1200'">$1200</button>
-                                        <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$2000'">$2000</button>
-                                        <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$3500'">$3500</button>
-                                        <button type="button" class="budget-btn" onclick="document.getElementById('budget').value='$6000'">$6000</button>
+                                    <div class="About-item">
+                                      <h4>Contact About</h4>
+                                      <div class="About-button">
+                                        <button type="button" class="About-btn" onclick="document.getElementById('About').value='Collab'">Collab</button>
+                                        <button type="button" class="About-btn" onclick="document.getElementById('About').value='Project'">Project</button>
+                                        <button type="button" class="About-btn" onclick="document.getElementById('About').value='Hire'">Hire</button>
+                                        <button type="button" class="About-btn" onclick="document.getElementById('About').value='Feedback'">Feedback</button>
+                                        <button type="button" class="About-btn" onclick="document.getElementById('About').value='other'">other</button>
                                       </div>
-                                      <input type="hidden" name="budget" id="budget" value="">
+                                      <input type="hidden" name="About" id="About" value="">
                                     </div>
                                   </div>
                                 </div>
@@ -394,7 +394,7 @@
                           contactForm.addEventListener('submit', function(event){
                             event.preventDefault();
                         
-                            emailjs.sendForm('service_zwxofca', 'template_7fgvllk', this)
+                            emailjs.sendForm('service_zwxofca', 'template_ht8qqd9', this)
                               .then(() => {
                                 formMsg.innerText = "Message sent successfully!";
                                 formMsg.style.color = "white";
