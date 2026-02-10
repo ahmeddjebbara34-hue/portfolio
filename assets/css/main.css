@@ -9328,6 +9328,9 @@ h5.preloader-text::after {
   max-width: 330px;
 }
 
+.project-section-555 {
+    padding-top: 0 !important;
+}
 .project-section-555 .section-title-area .section-title h2 {
   font-size: 100px;
   font-weight: 700;
